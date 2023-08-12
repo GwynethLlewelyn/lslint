@@ -66,6 +66,8 @@ void LLScriptScript::define_builtins() {
       strcpy(original, buf);
 
       ret_type = strtok(buf,  " (),");
+      if (ret_type[0] == '/' && ret_type[1] == '/')
+         continue;
 
       if ( ret_type == NULL ) {
          fprintf(stderr, "error parsing %s: %s\n", builtins_file, original);
